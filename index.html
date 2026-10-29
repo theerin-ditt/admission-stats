@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สถิติคะแนน Admission รอบ 3 · ย้อนหลัง 2 ปี</title>
+<meta name="description" content="ค้นหามหาวิทยาลัยและคณะที่สนใจ แล้วดูคะแนนสูงสุด–ต่ำสุดของ TCAS รอบ 3 Admission ปี 68 เทียบกับปี 69 ในตารางเดียว">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-text">
+      <div class="pill"><i></i>TCAS · รอบ 3 Admission</div>
+      <h1>เช็กคะแนน<br><span class="hl">ย้อนหลัง 2 ปี</span></h1>
+      <p class="lead">ค้นหามหาวิทยาลัยและคณะที่สนใจ แล้วดูคะแนนสูงสุด–ต่ำสุดของปี 68 เทียบกับปี 69 ในตารางเดียว</p>
+    </div>
+
+    <div class="stickers" aria-hidden="true">
+      <svg class="sticker" viewBox="0 0 130 90" width="170" height="118" style="left:0;top:18px;transform:rotate(-8deg)">
+        <path d="M10 38 L64 12 L120 37 L66 64 Z" fill="#F2B705" stroke="#151210" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M30 52 C30 70 42 80 66 80 C90 80 100 70 100 50 L66 64 Z" fill="#fff" stroke="#151210" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M118 38 C121 50 120 60 118 70" fill="none" stroke="#151210" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="118" cy="74" r="6" fill="#FF9E80" stroke="#151210" stroke-width="4"/>
+      </svg>
+      <svg class="sticker" viewBox="0 0 120 120" width="116" height="116" style="right:6px;top:0;transform:rotate(10deg)">
+        <path d="M60 6 L73 34 L104 26 L88 53 L114 72 L82 78 L80 110 L58 88 L34 112 L36 80 L6 70 L32 52 L18 24 L48 32 Z" fill="#F2B705" stroke="#151210" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M48 62 L58 72 L76 48" fill="none" stroke="#151210" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="sticker" viewBox="0 0 150 56" width="168" height="63" style="left:42px;bottom:2px;transform:rotate(-14deg)">
+        <path d="M8 28 L30 8 L136 8 C142 8 144 12 144 16 L144 40 C144 44 142 48 136 48 L30 48 Z" fill="#9AD5F0" stroke="#151210" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M30 8 L30 48" stroke="#151210" stroke-width="4"/>
+        <path d="M8 28 L30 8 L30 48 Z" fill="#FF9E80" stroke="#151210" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M48 18 L130 18 M48 28 L130 28 M48 38 L108 38" stroke="#151210" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="bubble">ลุ้นกัน!</div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="สรุปผลการค้นหา">
+    <div class="stat">
+      <div class="label">คณะที่พบ</div>
+      <div class="num" id="statCount">–</div>
+    </div>
+    <div class="stat yellow">
+      <div class="label">มหาวิทยาลัย</div>
+      <div class="num" id="statUnis">–</div>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="controls" aria-label="ค้นหาและกรอง">
+    <div class="row">
+      <div class="field">
+        <label for="uni">มหาวิทยาลัย (พิมพ์ค้นหาได้)</label>
+        <input id="uni" type="search" list="uniList" autocomplete="off" placeholder="เช่น จุฬา, เกษตร, ขอนแก่น">
+        <datalist id="uniList"></datalist>
+      </div>
+      <div class="field">
+        <label for="fac">คณะ (พิมพ์ค้นหาได้)</label>
+        <input id="fac" type="search" list="facList" autocomplete="off" placeholder="เช่น วิศวกรรม, แพทย์, นิติ">
+        <datalist id="facList"></datalist>
+      </div>
+      <div class="field narrow">
+        <label for="sort">เรียงตาม</label>
+        <select id="sort">
+          <option value="name">ชื่อมหาวิทยาลัย ก–ฮ</option>
+          <option value="avgDesc">เฉลี่ย 2 ปี สูง → ต่ำ</option>
+          <option value="avgAsc">เฉลี่ย 2 ปี ต่ำ → สูง</option>
+          <option value="h69">สูงสุด ปี 69 สูง → ต่ำ</option>
+          <option value="l69">ต่ำสุด ปี 69 สูง → ต่ำ</option>
+          <option value="change">ต่ำสุดเปลี่ยนมากสุด</option>
+        </select>
+      </div>
+    </div>
+    <div class="note-row">
+      <div class="txt">ใช้คะแนนผลสุดท้ายของแต่ละปี (ปี 68 ประมวลผลครั้งที่ 2 · ปี 69 คอลัมน์ DS)</div>
+      <button class="btn btn-reset" id="reset" type="button">ล้างตัวกรอง</button>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="results" aria-label="ตารางเปรียบเทียบคะแนน">
+    <div class="results-head">
+      <div class="count" id="shownText" aria-live="polite"></div>
+      <div class="legend">
+        <span class="chip up">▲ ปี 69 สูงขึ้น</span>
+        <span class="chip down">▼ ปี 69 ลดลง</span>
+        <span>“–” = ไม่มีข้อมูล</span>
+      </div>
+    </div>
+
+    <div class="msg" id="loading">กำลังโหลดข้อมูล…</div>
+    <div class="msg err" id="failed" hidden>โหลดข้อมูลไม่สำเร็จ ลองรีเฟรชหน้านี้อีกครั้ง</div>
+
+    <div id="tableWrap" hidden>
+      <div class="table" tabindex="0" role="region" aria-label="ตารางคะแนน เลื่อนดูด้านข้างได้">
+        <div class="table-inner">
+          <div class="cols thead">
+            <div class="th" style="grid-column:1;grid-row:1 / span 2">มหาวิทยาลัย</div>
+            <div class="th" style="grid-column:2;grid-row:1 / span 2">คณะ</div>
+            <div class="th" style="grid-column:3;grid-row:1 / span 2">สาขาวิชา</div>
+            <div class="th sub" style="grid-column:4 / span 2;grid-row:1">สูงสุด</div>
+            <div class="th sub" style="grid-column:6 / span 2;grid-row:1">ต่ำสุด</div>
+            <div class="th" style="grid-column:8;grid-row:1 / span 2">เฉลี่ยทั้ง 2 ปี</div>
+            <div class="th year" style="grid-column:4;grid-row:2">ปี 68</div>
+            <div class="th year" style="grid-column:5;grid-row:2">ปี 69</div>
+            <div class="th year" style="grid-column:6;grid-row:2">ปี 68</div>
+            <div class="th year" style="grid-column:7;grid-row:2">ปี 69</div>
+          </div>
+          <div id="rows"></div>
+        </div>
+      </div>
+      <div class="hint">เลื่อนตารางไปด้านข้างได้บนมือถือ →</div>
+    </div>
+
+    <div class="msg empty" id="empty" hidden>
+      <svg aria-hidden="true" viewBox="0 0 80 80" width="72" height="72"><circle cx="34" cy="34" r="20" fill="#FFF0B8" stroke="#151210" stroke-width="5"/><path d="M49 49 L70 70" stroke="#151210" stroke-width="8" stroke-linecap="round"/><path d="M26 40 C30 34 38 34 42 40" fill="none" stroke="#151210" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="28" r="2.5" fill="#151210"/><circle cx="41" cy="28" r="2.5" fill="#151210"/></svg>
+      <div class="big">ไม่พบข้อมูลที่ตรงกับคำค้น</div>
+      <div>ลองพิมพ์คำให้สั้นลง หรือกด “ล้างตัวกรอง”</div>
+    </div>
+
+    <button class="btn btn-more" id="more" type="button" hidden></button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="foot-title">อ่านก่อนใช้งาน</div>
+    <div>• แหล่งข้อมูล: ไฟล์สถิติรอบ 3 (Admission) ปี 2568 และ 2569 ที่อัปโหลดไว้ ยังไม่ได้ปรับเกณฑ์หรือเติมข้อมูลเอง</div>
+    <div>• แยกแถวตามคณะและสาขาวิชา: ชื่อสาขาวิชาดึงจากคอลัมน์สาขา/วิชาเอก ถ้าไม่มีจะดึงจากชื่อหลักสูตร ถ้าไม่ระบุทั้งคู่จะเว้นว่างและรวมคะแนนทุกหลักสูตรของคณะนั้นไว้ในแถวเดียว</div>
+    <div>• “สูงสุด” คือค่าสูงสุดและ “ต่ำสุด” คือค่าต่ำสุดของหลักสูตร/โครงการในแถวนั้น (ไม่นับค่า 0 ที่แปลว่าไม่มีข้อมูล)</div>
+    <div>• “เฉลี่ยทั้ง 2 ปี” คือค่าเฉลี่ยของคะแนนที่มี (สูงสุด/ต่ำสุด ปี 68 และ 69) ถ้ามีข้อมูลปีเดียวจะแสดงค่าเฉลี่ยของปีนั้น</div>
+    <div>• ชื่อคณะหรือสาขาที่สะกดไม่ตรงกันระหว่างสองปีจะแสดงเป็นคนละแถว (ช่องปีที่ไม่มีข้อมูลเป็น “–”)</div>
+    <div>• คะแนนย้อนหลังเป็นข้อมูลอ้างอิง ไม่ใช่การรับประกันผลการสอบในปีถัดไป</div>
+  </footer>
+</div>
+
+<script src="/app.js" defer></script>
+</body>
+</html>

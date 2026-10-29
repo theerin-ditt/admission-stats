@@ -1,0 +1,6 @@
+{
+  "name": "admission-stats",
+  "version": "1.0.0",
+  "private": true,
+  "description": "สถิติคะแนน Admission รอบ 3 ปี 2568-2569"
+}
